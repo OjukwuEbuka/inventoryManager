@@ -29,3 +29,11 @@ html, body {
     font-style: italic;
     font-size: 2rem !important;
 }
+
+#loginContainer{
+    margin-top: 10%;
+}
+
+#loginSubmit{
+    margin: 2rem 0;
+}

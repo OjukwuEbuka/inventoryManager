@@ -12,11 +12,18 @@ use App\School;
 class LoginPageController extends Controller
 {
     //
+    public function home(){
+        // if(isset($_SESSION['user']))
+        // {session_destroy();}
+        Auth::logout();
+        return view('login.home');
+    }
+    
     public function index(){
         // if(isset($_SESSION['user']))
         // {session_destroy();}
-        // Auth::logout();
-        return view('login.home');
+        Auth::logout();
+        return view('login.loginPage');
     }
     
     public function logout(){

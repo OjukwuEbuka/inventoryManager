@@ -6,7 +6,7 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="/login">Login</a></li>
       </ul>
     </div>
   </nav>

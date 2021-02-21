@@ -1,4 +1,4 @@
-@extends('login.layout')
+@extends('layout.home')
 
 @section('title', 'ChiChi Mart')
 

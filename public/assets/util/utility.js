@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(e){
     M.Sidenav.init(mobileMenu, {edge: "right"})
     M.Carousel.init(carous, {fullWidth: true, indicators: true});
 
-    setInterval(() => {
+    carous && setInterval(() => {
         M.Carousel.getInstance(carous).next()
     }, 5000)
 })

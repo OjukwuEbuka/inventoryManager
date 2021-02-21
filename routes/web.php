@@ -17,7 +17,7 @@ Route::view('contact', 'contact');
 Route::view('about', 'about');
 
 Route::get('login', 'LoginPageController@index')->name('login');
-Route::get('/', 'LoginPageController@index');
+Route::get('/', 'LoginPageController@home')->name('home');
 Route::post('login/user', 'LoginPageController@mainLogin');
 
 
