@@ -38,58 +38,31 @@ class LoginPageController extends Controller
 
         $username = $userDetails['uname'];
         $password = $userDetails['pword'];
-        $nameSplit = explode('/', $username);
-
+        // dd($userDetails);
         if(Auth::attempt(['name'=> $username, 'password' => $password])){
-            // dd($request->user()->name);
+            // dd(Auth::user());
             
-            if($nameSplit[0] == 'admin'){
+            // if($request->user()->role == 'admin'){
                 return response()->json([
                     'success' => true, 
-                    'location' => '/schools/'.$request->user()->school_id
+                    'location' => '/dashboard'
                 ]);
-            }
-            if($nameSplit[1] == 'STF'){
-                return response()->json([
-                    'success' => true, 
-                    'location' => '/'.$request->user()->school_id.'/staff/profile/'.$nameSplit[2]
-                ]);
-            }
-            if($nameSplit[1] == 'STD'){
-                return response()->json([
-                    'success' => true, 
-                    'location' => '/'.$request->user()->school_id.'/student/profile/'.$nameSplit[2]
-                ]);
-            }
+            // }
         } else {
             // dd($request->user());
             return response()->json(['error' => true, 'cred'=>$userDetails]);
         }
 
-        // if(count($userDetails['uname']) === 1){
-        //     $user = (array) DB::table('users')->where([
-        //                     ['name', $userDetails['uname'][0]],
-        //                     ['password', $userDetails['pword']],
-        //                 ])->first();
-        // } else {
-        //     $user = (array) DB::table('users')->where([
-        //         ['name', $userDetails['uname'][2]],
-        //         ['role', strtoupper($userDetails['uname'][1])],
-        //         ['password', $userDetails['pword']],
-        //     ])->first();
-        // }
-        // // dd($userDetails, $user);
-        // if(empty($user)){
-        //     return response()->json(["Authenticated"=>false]);
-        // } else {
-        //     $_SESSION['user'] = $user['name'];
-        //     $_SESSION['role'] = $user['role'];
-            
-        //     // session(["user"=>$user['name']]);
-        //     // $request->session()->put("user", $user['name']);
-        //     return response()->json(["Authenticated"=>true, 'id'=>$user['name'], 'role'=>$user['role'], 'school'=>$user['school_id']]);
-        // }
+    }
 
+    public function dashboard(Request $request){
+        $user = $request->user();
+
+        if($user->role === "admin"){
+            return view('admin.dashboard', compact($user));
+        } else if ($user->role === "cashier") {
+            return view('cashier.dashboard', compact($user));
+        } 
     }
 
     public function changePassword(Request $request, School $school){

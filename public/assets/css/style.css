@@ -3,7 +3,7 @@ html, body {
     color: #000;
     font-family: Roboto, 'Open Sans' !important;
     height: 100vh;
-    background-color: #f0f1f3 !important;
+    background-color: #e5ecc7 !important;
     margin: 0;
 }
 
@@ -17,8 +17,21 @@ html, body {
     height: 550px !important;
 }
 
+@media only screen and (max-width: 840px){
+    #caro1 {
+        height: 300px !important;
+    }
+}
+
+@media only screen and (max-width: 464px){
+    #caro1 {
+        height: 180px !important;
+    }
+}
+
 #navbar{
-    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(0,0,0,1)) !important;
+    background-color: #ece28a;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(117, 81, 16)) !important;
 }
 
 #topsellingsection{
@@ -34,6 +47,47 @@ html, body {
     margin-top: 10%;
 }
 
+.blackBorder{
+    border: 1px solid #000 !important;
+}
+
 #loginSubmit{
-    margin: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+#loginSubmit:hover{
+    background-color: #745110 !important;
+}
+
+#navbar ul li:hover{
+    background-color: #6d6d6d;
+}
+
+/* HANDLE SIDEBAR BEHAVIOUR */
+#slide-out{
+    width: 250px !important;
+    background-color: #ece28a;
+}
+
+.padSide{
+    margin-left: 250px;
+    transition: margin-left .5s;
+}
+
+#sideNavShow{
+    margin-right: 3rem;
+}
+
+@media only screen and (max-width: 992px){
+    
+    body {
+        margin-left: 0px !important;
+    }
+}
+
+/* SIDEBAR END */
+
+.noBack{
+    background: none !important;
+    border: none;
 }

@@ -6,8 +6,8 @@
 
 <div class="container" id="loginContainer">
 
-    <div class="loginFrame row center z-depth-1">
-        <div class="col s12 offset-m2 m8 center" id="">
+    <div class="loginFrame row center z-depth-1 blackBorder">
+        <div class="col s12 offset-m3 m6 center " id="">
             <div class="">
                 <h4 class="center">Login</h4>
                 <form>

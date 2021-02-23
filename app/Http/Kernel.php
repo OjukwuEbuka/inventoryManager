@@ -53,7 +53,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        // 'auther'=> \App\Http\Middleware\AuthControl::class,
+        'auther'=> \App\Http\Middleware\AuthControl::class,
         'adminCheck'=> \App\Http\Middleware\CheckAdmin::class,
         'cors' => \App\Http\Middleware\Cors::class,
         'auth' => \App\Http\Middleware\Authenticate::class,

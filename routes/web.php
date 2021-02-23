@@ -27,4 +27,7 @@ Route::middleware(['auther'])->group(function(){
     Route::get('{school}/staff/profile/{staff}', 'StaffController@staffProfile')->name('staffProfile');
     Route::post('student/result/{student}', 'ResultsController@fetchStudentResult');
 
+    Route::get('dashboard', 'LoginPageController@dashboard');
+    Route::get('logout', 'LoginPageController@logout');
+
 });
