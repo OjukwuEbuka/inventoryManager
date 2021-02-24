@@ -34,4 +34,9 @@ Route::middleware(['auther'])->group(function(){
     Route::get('products', 'ProductController@index');
     Route::post('product/new', 'ProductController@store');
     Route::post('product/delete', 'ProductController@delete');
+    
+    
+    // Purchases
+    Route::get('purchases', 'purchaseController@index');
+    Route::post('purchase/store', 'purchaseController@store');
 });

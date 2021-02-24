@@ -6,8 +6,8 @@
       <img src="{{ asset('assets/img/shop3.jpg') }}">
     </div>
     <a href="#user"><img class="circle" src="{{ asset('assets/img/no_image.jpg') }}"></a>
-    <a href="#name"><span class="white-text name">John Doe</span></a>
-    <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    <a href="#name"><span class="white-text name">Chimamkpa</span></a>
+    <a href="#email"><span class="white-text email">Store Admin</span></a>
   </div>
 </li>
 <li class="no-padding">
@@ -66,9 +66,7 @@
             </a>
             <div class="collapsible-body">
                 <ul>
-                    <li class=""><a href="#" >Register Student</a></li>
-                    <li class=""><a href="#" >Capture Student Photo </a></li>
-                    <li class=""><a href="#" >View Students</a></li>
+                    <li class=""><a href="/purchases" >Receive Purchases</a></li>
                 </ul>
             </div>
             </li>
@@ -91,7 +89,7 @@
             </li>
         </ul>
     </li>
-<li class="no-padding">
+{{--<li class="no-padding">
         <ul class="collapsible collapsible-accordion ">
             <li class="">
             <a class="collapsible-header "><span class='left'><i class='material-icons left'>people</i></span>
@@ -100,13 +98,11 @@
             </a>
             <div class="collapsible-body">
                 <ul>
-                    <li class=""><a href="#" >Register Student</a></li>
-                    <li class=""><a href="#" >Capture Student Photo </a></li>
-                    <li class=""><a href="#" >View Students</a></li>
+                    <li class=""><a href="#" >Register User</a></li>
                 </ul>
             </div>
             </li>
         </ul>
-    </li>
+    </li>--}}
 </ul>
       

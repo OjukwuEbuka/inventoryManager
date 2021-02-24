@@ -199,6 +199,77 @@ document.addEventListener('DOMContentLoaded', function(e){
     })
 
 
+    // HANDLE PURCHASE SECTION
+    let productSubmitBtn = document.querySelector('#productSubmitBtn');
+    let productsArr = [];
+    let purchaseModalBtn = document.querySelector('#purchaseModalBtn');
+    let purchaseForm = document.querySelector('#purchaseForm');
+
+    purchaseModalBtn && purchaseModalBtn.addEventListener('click', function(){
+        M.Modal.getInstance(purchaseModal).open()
+    })
+
+    purchaseForm && purchaseForm.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        let validForm = true;
+        let formVal = new FormData(purchaseForm);
+        for(let val of formVal.values()){
+            if(val.trim() == ''){
+                validForm = false;
+            }
+        }
+        if(!validForm){
+            purchaseForm.querySelector('#errorText').classList.remove('hide');
+            return;
+        }
+        purchaseForm.querySelector('#errorText').classList.add('hide');
+        
+        let prodName = purchaseForm.querySelector('#name').selectedOptions[0].textContent.trim();
+        let prodId = purchaseForm.querySelector('#name').value;
+        let prodQty = purchaseForm.querySelector('#quantity').value;
+        let prodCost = purchaseForm.querySelector('#cost').value;
+        let prodPrice = purchaseForm.querySelector('#price').value;
+        let purchaseTable = document.querySelector('#purchaseTable');
+
+        productsArr.push({prodId, prodQty, prodCost, prodPrice})
+
+        purchaseForm.querySelector('#quantity').value = '';
+        purchaseForm.querySelector('#cost').value = '';
+        purchaseForm.querySelector('#price').value = '';
+
+        let newRow = purchaseTable.insertRow();
+        // newRow.setAttribute('id', `row${res.prod.id}`)
+        newRow.innerHTML = `
+            <td>${prodId}</td>
+            <td>${prodName}</td>
+            <td>${prodQty}</td>
+            <td>${prodCost}</td>
+            <td>${(+prodPrice).toFixed(2)}</td>
+        `
+        M.Modal.getInstance(purchaseModal).close()
+            
+    });
+
+    productSubmitBtn && productSubmitBtn.addEventListener('click', function(e){
+        e.preventDefault();
+
+        if(productsArr.length < 1){
+            alert('No products selected!');
+            return;
+        }
+        document.querySelector('.progress').classList.remove('hide')
+        productSubmitBtn.setAttribute('disabled', true);
+        AJAXJS(productsArr, 'POST', '/purchase/store', (res) => {
+            document.querySelector('.progress').classList.add('hide')
+            if(res.success){
+                M.toast({html: "<h5>Purchases successfully registered!</h5>", classes:"green"})
+            }
+            console.log(res)
+        }, true)
+    })
+
+
 })
 
 
