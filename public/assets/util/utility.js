@@ -137,6 +137,67 @@ document.addEventListener('DOMContentLoaded', function(e){
         M.Modal.getInstance(deleteModal).close();
     })
 
+    
+    /******HANDLE PRODUCT SECTION***** */
+    let productModal = document.querySelector('#productModal');
+    let productModalBtn = document.querySelector('#productModalBtn');
+    let productForm = document.querySelector('#productForm');
+
+    productModalBtn && productModalBtn.addEventListener('click', function(){
+        M.Modal.getInstance(productModal).open()
+    })
+
+    productForm && productForm.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        let validForm = true;
+        let formVal = new FormData(productForm);
+        for(let val of formVal.values()){
+            if(val.trim() == ''){
+                validForm = false;
+            }
+        }
+        if(!validForm){
+            productForm.querySelector('#errorText').classList.remove('hide');
+            return;
+        }
+        productForm.querySelector('#errorText').classList.add('hide');
+        productModal.querySelector('.progress').classList.remove('hide');
+
+        AJAXJS(formVal, 'POST', '/product/new', (res) => {
+            productModal.querySelector('.progress').classList.add('hide');
+            console.log(res);
+            if(res.exists){
+                M.toast({html:"<h5>Product already exists</h5>", classes:"red"});
+            } else if(res.success){
+                M.toast({html:"<h5>Product created successfully</h5>", classes:"green"});
+                productForm.querySelector('#name').value = '';
+                productForm.querySelector('#price').value = '';
+                let productTable = document.querySelector('#productTable');
+
+                let newRow = productTable.insertRow();
+                newRow.setAttribute('id', `row${res.prod.id}`)
+                newRow.innerHTML = `
+                    <td>${res.prod.id}</td>
+                    <td>${res.prod.name}</td>
+                    <td>${res.prod.quantity ?? 0}</td>
+                    <td>${res.prod.unit}</td>
+                    <td>${(+res.prod.current_price).toFixed(2)}</td>
+                    <td>
+                        <button class="btn-floating red deleteBtn" 
+                            data-type="product"  data-table="productTable" data-id="${res.prod.id}" title="Delete">
+                            <i class="material-icons">delete</i>
+                        </button>
+                    </td>
+                `
+                deleteFxn();
+                M.Modal.getInstance(productModal).close()
+            } else{
+                M.toast({html:"<h5>Product creation failed</h5>", classes:"red"});
+            }
+        })
+    })
+
 
 })
 

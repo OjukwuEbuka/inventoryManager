@@ -34,9 +34,7 @@
             </a>
             <div class="collapsible-body">
                 <ul>
-                    <li class=""><a href="#" >Register Student</a></li>
-                    <li class=""><a href="#" >Capture Student Photo </a></li>
-                    <li class=""><a href="#" >View Students</a></li>
+                    <li class=""><a href="/products" >View Products</a></li>
                 </ul>
             </div>
             </li>

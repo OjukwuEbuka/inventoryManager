@@ -6,7 +6,7 @@
       @endif
       <a href="/" class="brand-logo">
         <span>ChiChi's Mart</span> 
-        <i class="material-icons right">shopping_cart</i>
+        <i class="material-icons right  hide-on-med-and-down">shopping_cart</i>
       </a>
       <ul class="right hide-on-med-and-down">
         <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>

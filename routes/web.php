@@ -29,4 +29,9 @@ Route::middleware(['auther'])->group(function(){
     Route::get('categories', 'CategoryController@index');
     Route::post('categories/new', 'CategoryController@store');
     Route::post('category/delete', 'CategoryController@delete');
+
+    // Products
+    Route::get('products', 'ProductController@index');
+    Route::post('product/new', 'ProductController@store');
+    Route::post('product/delete', 'ProductController@delete');
 });
