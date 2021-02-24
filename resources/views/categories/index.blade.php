@@ -14,13 +14,30 @@
     <table class="" id="categoryTable">
         <thead>
             <tr>
-                <td>S/No.</td>
-                <td>Id</td>
-                <td>Name</td>
-                <td>Action</td>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Action</th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+            @if(count($cats) > 0)
+                @foreach($cats as $cat)
+                    <tr id="row{{ $cat->id }}">
+                        <td>{{ $cat->id }}</td>
+                        <td>{{ $cat->name }}</td>
+                        <td>{{ $cat->description }}</td>
+                        <td>
+                        <button class="btn btn-floating red deleteBtn" 
+                            data-type="category" data-table="categoryTable"
+                             data-id="{{$cat->id}}" title="Delete">
+                            <i class="material-icons">delete</i>
+                        </button>
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
+        </tbody>
     </table>
 
     <div id="categoryModal" class="modal">
@@ -30,10 +47,10 @@
         </button>
 
         <div class="modal-content">
-            <form id="CategoryForm">
+            <form id="categoryForm">
                 <div class="row center">
                     <h5>Create Category</h5>
-                    <h6 id="showCreateModalError" class="hide red-text"><span class="center">Please fill in all fields!</span></h6>
+                    <h6 id="errorText" class="hide red-text"><span class="center">Please fill in all fields!</span></h6>
                     <div class="input-field">
                         <label for="name" >Category Name</label>
                         <input type="text" name="name" id="name" />
@@ -42,8 +59,6 @@
                         <label for="description" >Description</label>
                         <input type="text" name="description" id="description" />
                     </div>
-                </div>
-                <hr>
                 </div>
                 <div class="progress hide">
                     <div class="indeterminate yellow"></div>
@@ -54,5 +69,7 @@
             </form>
         </div>
     </div>
+
+    @include('includes.deleteModal')
 
 @endsection

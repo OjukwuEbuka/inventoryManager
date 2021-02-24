@@ -22,13 +22,11 @@ Route::post('login/user', 'LoginPageController@mainLogin');
 
 
 Route::middleware(['auther'])->group(function(){
-    Route::get('{school}/student/profile/{student}', 'StudentsController@studentProfile')->name('studentProfile');
-
-    Route::get('{school}/staff/profile/{staff}', 'StaffController@staffProfile')->name('staffProfile');
-    Route::post('student/result/{student}', 'ResultsController@fetchStudentResult');
-
     Route::get('dashboard', 'LoginPageController@dashboard');
     Route::get('logout', 'LoginPageController@logout');
 
+    // Categories
     Route::get('categories', 'CategoryController@index');
+    Route::post('categories/new', 'CategoryController@store');
+    Route::post('category/delete', 'CategoryController@delete');
 });
