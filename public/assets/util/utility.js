@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function(e){
     let sideNavShow = document.querySelector('#sideNavShow');
     let mySideNav = document.querySelector('#slide-out');
 
+    $('#categoryTable').DataTable();
     M.AutoInit();
 
     M.Sidenav.init(mobileMenu, {edge: "right"});
@@ -27,6 +28,14 @@ document.addEventListener('DOMContentLoaded', function(e){
             navInst.open();
             console.log('Not Padded')
         }
+    })
+
+    /******HANDLE CATEGORY SECTION***** */
+    let categoryModal = document.querySelector('#categoryModal');
+    let categoryModalBtn = document.querySelector('#categoryModalBtn');
+
+    categoryModalBtn && categoryModalBtn.addEventListener('click', function(){
+        M.Modal.getInstance(categoryModal).open()
     })
 
 

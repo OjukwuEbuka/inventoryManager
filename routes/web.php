@@ -30,4 +30,5 @@ Route::middleware(['auther'])->group(function(){
     Route::get('dashboard', 'LoginPageController@dashboard');
     Route::get('logout', 'LoginPageController@logout');
 
+    Route::get('categories', 'CategoryController@index');
 });

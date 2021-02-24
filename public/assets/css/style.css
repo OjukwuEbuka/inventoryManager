@@ -85,9 +85,21 @@ html, body {
     }
 }
 
+.collapsible-body li {
+    background-color: #e5ecc7 !important;
+}
+
 /* SIDEBAR END */
 
 .noBack{
     background: none !important;
     border: none;
+}
+
+.mycontainer{
+    padding: 2% 5%;
+}
+
+body button{
+    background-color: #745110 !important;
 }

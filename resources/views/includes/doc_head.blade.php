@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/materialize.min.css') }}" media="screen,projection" />
 
     <script src="{{ asset('assets/js/materialize.min.js') }}"></script>
+    <link rel="stylesheet" href=" {{ asset('assets/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css') }}">
 
         <!-- Custom Css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
