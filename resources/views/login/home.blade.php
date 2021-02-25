@@ -21,15 +21,42 @@
         <div class="col s12 m3">
             <div class="card">
                 <div class="card-image">
-                    <img src="{{ asset('assets/img/shop1.jpg') }}">
-                    <span class="card-title">Card Title</span>
+                    <img src="{{ asset('assets/img/redheels.jpg') }}">
+                    <span class="card-title">Red Christian Dior</span>
                 </div>
                 <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
+                    <p>Beautiful red heels for classy ladies by Christian Dior.</p>
                 </div>
                 <div class="card-action">
-                    <a href="#">This is a link</a>
+                    <a href="#">Christian Dior</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ asset('assets/img/nikesneakers.jpg') }}">
+                    <span class="card-title">Nike Canvas</span>
+                </div>
+                <div class="card-content">
+                    <p>Solid black and white Nike canvas for the active person</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">Nike</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ asset('assets/img/beigeheels.jpg') }}">
+                    <span class="card-title">Fendi Heels</span>
+                </div>
+                <div class="card-content">
+                    <p>Milk colour Fendi shoes for the chic working lady.</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">Fendi</a>
                 </div>
             </div>
         </div>
@@ -40,38 +67,7 @@
                     <span class="card-title">Card Title</span>
                 </div>
                 <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="{{ asset('assets/img/shop1.jpg') }}">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="{{ asset('assets/img/shop1.jpg') }}">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
+                    <p>I am a very simple card.</p>
                 </div>
                 <div class="card-action">
                     <a href="#">This is a link</a>

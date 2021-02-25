@@ -18,7 +18,7 @@ class AuthControl
 
         // dd($request->user());
         if ($request->user() == null) {
-            return redirect()->route('login');
+            return redirect()->route('home');
         }
         return $next($request);
         // if (! $request->expectsJson()) {

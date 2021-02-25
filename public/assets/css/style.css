@@ -103,3 +103,29 @@ html, body {
 body button{
     background-color: #745110 !important;
 }
+
+
+.card-panel{
+    border-radius: .5rem;
+}
+
+.flexspace{
+    display:flex; 
+    justify-content: flex-start;
+    background-color:#eae088;
+}
+
+.flexspace:hover{
+    background-color: #d3d3d3;
+}
+
+.flexspace .pagecut{
+    margin-right:2rem;
+}
+
+.pagecut{
+    height:3rem; width:3rem;display:flex; justify-content:center;align-items:center;
+}
+
+.linkCard{
+}
