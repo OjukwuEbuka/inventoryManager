@@ -330,6 +330,86 @@ document.addEventListener('DOMContentLoaded', function(e){
         }
     }
 
+    // HANDLE SALES SECTION
+    let addInvoiceBtn = document.querySelector('#addInvoiceBtn');
+    let saleSubmitBtn = document.querySelector('#saleSubmitBtn');
+
+    addInvoiceBtn && addInvoiceBtn.addEventListener('click', function(){
+        let chooseProduct = document.querySelector('#chooseProduct');
+        let invoice =  document.querySelector('#invoice tbody');
+        let qty = document.querySelector('#quantity').value;
+        let prodQty = +chooseProduct.selectedOptions[0].dataset.quantity;
+
+        if(qty == '' || chooseProduct.value == ''){
+             alert('Please select product and quantity!')
+            return;
+        }
+        if(qty > prodQty){
+            alert('Insufficient Stock!');
+            return;
+        }
+        
+        if(document.querySelector(`#prod${chooseProduct.value}`)){
+            alert('Product already in cart!');
+            return;
+        }
+
+        let prodName = chooseProduct.selectedOptions[0].dataset.name;
+        let prodUnit = chooseProduct.selectedOptions[0].dataset.unit;
+        let prodPrice = chooseProduct.selectedOptions[0].dataset.price;
+        let total = (+prodPrice) * (+qty)
+        let newRow = invoice.insertRow();
+
+        newRow.setAttribute('id', `prod${chooseProduct.value}`)
+        newRow.setAttribute('data-id', chooseProduct.value)
+        newRow.setAttribute('data-qty', qty)
+        newRow.setAttribute('data-price', prodPrice)
+        newRow.innerHTML = `
+            <td>${prodName}</td>
+            <td>${qty}</td>
+            <td>${prodUnit}</td>
+            <td>${prodPrice}</td>
+            <td>${(+total).toFixed(2)}</td>
+        `
+
+        let currTotal = +document.querySelector('#totalCell').innerHTML;
+        document.querySelector('#invoice #totalCell').innerHTML = (currTotal + total).toFixed(2)
+    });
+
+
+    saleSubmitBtn && saleSubmitBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        let prodRows = document.querySelectorAll('#invoice tbody tr');
+        let prodArr = [];
+        if(prodRows.length < 1){
+            alert('No products selected!');
+            return;
+        }
+
+        prodRows.forEach(rw => {
+            let prod = {
+                id: rw.dataset.id,
+                quantity: rw.dataset.qty,
+                price: rw.dataset.price};
+            prodArr.push(prod);
+        });
+        saleSubmitBtn.setAttribute('disabled', true);
+        document.querySelector('.progress').classList.remove('hide')
+
+        AJAXJS(prodArr, 'POST', '/sales/store', (res)=>{
+            document.querySelector('.progress').classList.add('hide')
+            if(res.success){
+                M.toast({html: "<h5>Sales Completed Successsfully!</h5>", classes:"green"})
+                document.querySelectorAll('#invoice tbody').innerHTML = '';
+                saleSubmitBtn.removeAttribute('disabled');
+            }
+        }, true)
+
+
+    })
+
+
+
 })
 
 

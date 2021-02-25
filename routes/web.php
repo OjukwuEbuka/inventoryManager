@@ -41,9 +41,18 @@ Route::middleware(['auther'])->group(function(){
     Route::post('purchase/store', 'PurchaseController@store');
 
 
-    // Reports
+    // Reports Purchases
     Route::get('reports/purchase', 'ReportController@purchase');
-    Route::post('reports/purchase/month', 'ReportController@month');
-    Route::post('reports/purchase/day', 'ReportController@day');
+    Route::post('reports/purchase/month', 'ReportController@monthPurchase');
+    Route::post('reports/purchase/day', 'ReportController@dayPurchase');
+    
+    // Reports Sales
+    Route::get('reports/sale', 'ReportController@sale');
+    Route::post('reports/sale/month', 'ReportController@monthSale');
+    Route::post('reports/sale/day', 'ReportController@daySale');
+
+    //Sales
+    Route::get('sales', 'SaleController@index');
+    Route::post('sales/store', 'SaleController@store');
 
 });

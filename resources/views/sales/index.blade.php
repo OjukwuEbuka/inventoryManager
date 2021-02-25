@@ -1,32 +1,77 @@
 @extends('layout.dashboard')
 
-@section('title', 'Receive Purchases')
+@section('title', 'Make Sale')
 
 @section('content')
 
-<h5 class="center">Receive Purchased Products</h5>
-
-    <table class="" id="purchaseTable">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Qty</th>
-                <th>Cost</th>
-                <th>New Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
+<h5 class="center">Make Sale</h5>
 
 <div class="row">
-    <div class="col m12 center">
-        <button class="btn" id="purchaseModalBtn">
-            Add Product
+    <div class="col m6 center">
+        <h6 class="center">Choose Product</h6>
+        <div class="input-field col m8">
+            <select id="chooseProduct" name="chooseProduct" class="browser-default">
+                <option value=""> Choose Product </option>
+                @if(count($prods) > 0)
+                    @foreach($prods as $prod)
+                    <option value="{{$prod->id}}"
+                         data-price="{{$prod->current_price}}"
+                         data-quantity="{{$prod->quantity}}"
+                         data-name="{{$prod->name}}"
+                         data-unit="{{$prod->unit}}"
+                    >
+                          {{ $prod->name }} 
+                    </option>
+                    @endforeach                        
+                @endif
+            </select>
+        </div>
+        <div class="input-field col m4">
+                <label for="quantity" >Quantity</label>
+                <input type="number" name="quantity" id="quantity" />
+            </div>
+        <button class="btn" id="addInvoiceBtn">
+            Add to Invoice
             <i class="material-icons left">add</i>
         </button> 
+    </div>
+
+    <div class="col m1 center">
+    </div>
+
+    <div class="col m5 center">
+        <h6 class="center">Sales Invoice</h6>
+        <table class="white" id="invoice">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Unit</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Total::</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th id="totalCell">0</th>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="row">
+            <div class="col m12 center">
+                <button class="btn" id="saleSubmitBtn">
+                    Submit
+                </button> 
+            </div>
+        </div>
     </div>
 </div>
 
@@ -34,56 +79,6 @@
     <div class="indeterminate yellow"></div>
 </div>
 
-<div class="row">
-    <div class="col m12 center">
-        <button class="btn" id="productSubmitBtn">
-            Submit
-        </button> 
-    </div>
-</div>
 
-<div id="purchaseModal" class="modal">
-
-<button class="modal-close waves-effect waves-light white-text btn-flat right" id="close">
-    <i class="material-icons">close</i>
-</button>
-
-<div class="modal-content">
-    <form id="purchaseForm">
-        <div class="row center">
-            <h5>Add Product</h5>
-            <h6 id="errorText" class="hide red-text"><span class="center">Please fill in all fields!</span></h6>
-            <div class="input-field">
-                <select id="name" name="name" class="browser-default">
-                    <option value=""> Choose Product </option>
-                    @if(count($prods) > 0)
-                        @foreach($prods as $prod)
-                        <option value="{{$prod->id}}" data-price="{{$prod->price}}"> {{ $prod->name }} </option>
-                        @endforeach                        
-                    @endif
-                </select>
-            </div>
-            <div class="input-field">
-                <label for="quantity" >Quantity</label>
-                <input type="text" name="quantity" id="quantity" />
-            </div>
-            <div class="input-field">
-                <label for="cost" >Cost</label>
-                <input type="number" name="cost" id="cost" />
-            </div>
-            <div class="input-field">
-                <label for="price" >New Price</label>
-                <input type="text" name="price" id="price" />
-            </div>
-        </div>
-        <div class="progress hide">
-            <div class="indeterminate yellow"></div>
-        </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn" id="">SUBMIT</button>
-        </div>
-    </form>
-</div>
-</div>
 
 @endsection

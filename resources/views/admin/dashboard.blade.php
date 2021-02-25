@@ -7,7 +7,7 @@
 <div class="row greyBack">
     
       <a href="/categories">
-        <div class="col m4 s12 linkCard">
+        <div class="col m4 s12">
           <div class="card-panel flexspace">
             <div class="blue lighten-4 circle pagecut">
               <i class="material-icons small blue-text">person_add</i>
@@ -20,7 +20,7 @@
       </a>
 
       <a href="/products">
-        <div class="col m4 s12 linkCard">
+        <div class="col m4 s12">
           <div class="card-panel flexspace">
             <div class="teal accent-1 circle pagecut">
               <i class="material-icons small teal-text">done</i>
@@ -33,7 +33,7 @@
       </a>
 
       <a href="/reports">
-        <div class="col m4 s12 linkCard">
+        <div class="col m4 s12">
           <div class="card-panel flexspace">
             <div class="yellow lighten-4 circle pagecut">
               <i class="material-icons small yellow-text">print</i>

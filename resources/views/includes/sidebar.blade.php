@@ -49,7 +49,7 @@
             </a>
             <div class="collapsible-body">
                 <ul>
-                    <li class=""><a href="#" >Register Student</a></li>
+                    <li class=""><a href="/sales" >Make Sale</a></li>
                 </ul>
             </div>
             </li>
@@ -80,8 +80,8 @@
             <div class="collapsible-body">
                 <ul>
                     <li class=""><a href="/reports/purchase" >Purchase Reports</a></li>
-                    <li class=""><a href="#" >Inventory Stock Reports </a></li>
-                    <li class=""><a href="#" >Sales Reports</a></li>
+                    {{--<li class=""><a href="#" >Inventory Stock Reports </a></li>--}}
+                    <li class=""><a href="/sales" >Sales Reports</a></li>
                 </ul>
             </div>
             </li>

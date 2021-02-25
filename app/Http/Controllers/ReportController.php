@@ -13,7 +13,7 @@ class ReportController extends Controller
     }
     
     
-    public function month(Request $request){
+    public function monthPurchase(Request $request){
         $data = $request->all();
 
         $dateArr = explode('-', $data['purchaseMonth']);
@@ -26,7 +26,7 @@ class ReportController extends Controller
         return response()->json(["products"=>$products, "date"=>date($data['purchaseMonth'])]);
     }
     
-    public function day(Request $request){
+    public function dayPurchase(Request $request){
         $data = $request->all();
 
         $products = DB::table('purchases')
@@ -35,6 +35,36 @@ class ReportController extends Controller
             ->get();
             
         return response()->json(["products"=>$products, "date"=>date($data['purchaseDay'])]);
+
+    }
+    
+    public function sale(){
+        return view('reports.sales');
+    }
+    
+    
+    public function monthSale(Request $request){
+        $data = $request->all();
+
+        $dateArr = explode('-', $data['sleMonth']);
+        $products = DB::table('sles')
+            ->leftJoin('products', 'products.id', '=', 'sles.item_id')
+            ->whereMonth('sles.created_at', $dateArr[1])
+            ->whereYear('sles.created_at', $dateArr[0])
+            ->get();
+
+        return response()->json(["products"=>$products, "date"=>date($data['saleMonth'])]);
+    }
+    
+    public function daySale(Request $request){
+        $data = $request->all();
+
+        $products = DB::table('sales')
+            ->leftJoin('products', 'products.id', '=', 'sales.item_id')
+            ->whereDate('sales.created_at', $data['saleDay'])
+            ->get();
+            
+        return response()->json(["products"=>$products, "date"=>date($data['saleDay'])]);
 
     }
 }
