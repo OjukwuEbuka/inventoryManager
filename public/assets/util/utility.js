@@ -270,6 +270,66 @@ document.addEventListener('DOMContentLoaded', function(e){
     })
 
 
+    // HANDLE REPORTS SECTION
+    // purchase
+    let purchaseMonthBtn = document.querySelector('#purchaseMonthBtn');
+    let purchaseDayBtn = document.querySelector('#purchaseDayBtn');
+
+    purchaseMonthBtn && purchaseMonthBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        let purchaseMonth = document.querySelector('#purchaseMonth').value;
+
+        if(purchaseMonth == ''){
+            alert('Please select a month');
+            return;
+        }
+        document.querySelector('.progress').classList.remove('hide')
+
+        AJAXJS({purchaseMonth}, 'POST', '/reports/purchase/month', purchaseReport, true);
+    })
+    
+    purchaseDayBtn && purchaseDayBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        let purchaseDay = document.querySelector('#purchaseDay').value;
+
+        if(purchaseDay == ''){
+            alert('Please select a Day');
+            return;
+        }
+        document.querySelector('.progress').classList.remove('hide')
+
+        AJAXJS({purchaseDay}, 'POST', '/reports/purchase/day', purchaseReport, true);
+    })
+
+    function purchaseReport(res){
+        let purchaseReportTable = document.querySelector('#purchaseReportsTable');
+        document.querySelector('.progress').classList.add('hide')
+
+        if(res.products.length > 0){
+            let reportBody = '';
+            let totalPrice = 0;
+            res.products.forEach(prod => {
+                let prodTotal = (+prod.unit_cost) * (+prod.quantity);
+                totalPrice += prodTotal;
+                reportBody += `
+                    <tr>
+                        <td>${prod.item_id}</td>
+                        <td>${prod.name}</td>
+                        <td>${prod.unit_cost}</td>
+                        <td>${prod.quantity}</td>
+                        <td>${prodTotal}</td>
+                    <tr>
+                `
+            })
+
+            purchaseReportTable.querySelector('tbody').innerHTML = reportBody;
+            document.querySelector('#reportDate').innerHTML = res.date;
+            document.querySelector('#purchaseReports').classList.remove('hide')
+        } else {
+            M.toast({html: "<h5>No Purchase on this Date!</h5>", classes:"green"})
+        }
+    }
+
 })
 
 

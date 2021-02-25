@@ -127,5 +127,6 @@ body button{
     height:3rem; width:3rem;display:flex; justify-content:center;align-items:center;
 }
 
-.linkCard{
+.borderRound{
+    border: 1px solid #745110 !important;
 }
