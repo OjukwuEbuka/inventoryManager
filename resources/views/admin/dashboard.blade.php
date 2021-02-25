@@ -4,6 +4,12 @@
 
 @section('content')
 
+<div class="row">
+  <div class="col m12">
+    <h5 class="center">Inventory Management System</h5 class="center">
+  </div>
+</div>
+
 <div class="row greyBack">
     
       <a href="/categories">

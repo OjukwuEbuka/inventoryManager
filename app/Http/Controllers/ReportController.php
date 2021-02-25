@@ -46,11 +46,11 @@ class ReportController extends Controller
     public function monthSale(Request $request){
         $data = $request->all();
 
-        $dateArr = explode('-', $data['sleMonth']);
-        $products = DB::table('sles')
-            ->leftJoin('products', 'products.id', '=', 'sles.item_id')
-            ->whereMonth('sles.created_at', $dateArr[1])
-            ->whereYear('sles.created_at', $dateArr[0])
+        $dateArr = explode('-', $data['saleMonth']);
+        $products = DB::table('sales')->select('sales.item_id', 'sales.quantity', 'sales.unit_price', 'products.name')
+            ->leftJoin('products', 'products.id', '=', 'sales.item_id')
+            ->whereMonth('sales.created_at', $dateArr[1])
+            ->whereYear('sales.created_at', $dateArr[0])
             ->get();
 
         return response()->json(["products"=>$products, "date"=>date($data['saleMonth'])]);
@@ -59,7 +59,7 @@ class ReportController extends Controller
     public function daySale(Request $request){
         $data = $request->all();
 
-        $products = DB::table('sales')
+        $products = DB::table('sales')->select('sales.item_id', 'sales.quantity', 'sales.unit_price', 'products.name')
             ->leftJoin('products', 'products.id', '=', 'sales.item_id')
             ->whereDate('sales.created_at', $data['saleDay'])
             ->get();

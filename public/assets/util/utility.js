@@ -329,6 +329,66 @@ document.addEventListener('DOMContentLoaded', function(e){
             M.toast({html: "<h5>No Purchase on this Date!</h5>", classes:"green"})
         }
     }
+    
+    
+    // sale
+    let saleMonthBtn = document.querySelector('#saleMonthBtn');
+    let saleDayBtn = document.querySelector('#saleDayBtn');
+
+    saleMonthBtn && saleMonthBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        let saleMonth = document.querySelector('#saleMonth').value;
+
+        if(saleMonth == ''){
+            alert('Please select a month');
+            return;
+        }
+        document.querySelector('.progress').classList.remove('hide')
+
+        AJAXJS({saleMonth}, 'POST', '/reports/sale/month', saleReport, true);
+    })
+    
+    saleDayBtn && saleDayBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        let saleDay = document.querySelector('#saleDay').value;
+
+        if(saleDay == ''){
+            alert('Please select a Day');
+            return;
+        }
+        document.querySelector('.progress').classList.remove('hide')
+
+        AJAXJS({saleDay}, 'POST', '/reports/sale/day', saleReport, true);
+    })
+
+    function saleReport(res){
+        let saleReportTable = document.querySelector('#saleReportsTable');
+        document.querySelector('.progress').classList.add('hide')
+
+        if(res.products.length > 0){
+            let reportBody = '';
+            let totalPrice = 0;
+            res.products.forEach(prod => {
+                let prodTotal = (+prod.unit_price) * (+prod.quantity);
+                totalPrice += prodTotal;
+                reportBody += `
+                    <tr>
+                        <td>${prod.item_id}</td>
+                        <td>${prod.name}</td>
+                        <td>${prod.unit_price}</td>
+                        <td>${prod.quantity}</td>
+                        <td>${prodTotal}</td>
+                    <tr>
+                `
+            })
+
+            saleReportTable.querySelector('tbody').innerHTML = reportBody;
+            document.querySelector('#reportDate').innerHTML = res.date;
+            document.querySelector('#saleReports').classList.remove('hide')
+        } else {
+            M.toast({html: "<h5>No Sale on this Date!</h5>", classes:"green"})
+        }
+    }
 
     // HANDLE SALES SECTION
     let addInvoiceBtn = document.querySelector('#addInvoiceBtn');

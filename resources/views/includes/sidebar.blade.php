@@ -6,7 +6,7 @@
       <img src="{{ asset('assets/img/shop3.jpg') }}">
     </div>
     <a href="#user"><img class="circle" src="{{ asset('assets/img/no_image.jpg') }}"></a>
-    <a href="#name"><span class="white-text name">Chimamkpa</span></a>
+    <a href="#name"><span class="white-text name">Ebuka</span></a>
     <a href="#email"><span class="white-text email">Store Admin</span></a>
   </div>
 </li>
@@ -81,7 +81,7 @@
                 <ul>
                     <li class=""><a href="/reports/purchase" >Purchase Reports</a></li>
                     {{--<li class=""><a href="#" >Inventory Stock Reports </a></li>--}}
-                    <li class=""><a href="/sales" >Sales Reports</a></li>
+                    <li class=""><a href="/reports/sale" >Sales Reports</a></li>
                 </ul>
             </div>
             </li>
