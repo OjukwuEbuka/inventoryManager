@@ -6,7 +6,7 @@
 
 <h5 class="center">Receive Purchased Products</h5>
 
-    <table class="" id="purchaseTable">
+    <table class="white" id="purchaseTable">
         <thead>
             <tr>
                 <th>Id</th>
