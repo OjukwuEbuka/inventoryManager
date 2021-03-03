@@ -25,7 +25,7 @@ class ProductController extends Controller
 
         $prod = new Product;
         $prod->name = $data["name"];
-        $prod->unit = $data["unit"];
+        $prod->unit = (int) $data["unit"];
         $prod->category_id = $data["category"];
         $prod->current_price = $data["price"];
         $prod->save();

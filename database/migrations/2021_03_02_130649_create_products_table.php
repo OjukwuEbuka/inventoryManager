@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 100);
             $table->integer('category_id');
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
             $table->string('unit', 50);
             $table->decimal('current_price', 18, 2);
             $table->timestamp('created_at')->useCurrent();
