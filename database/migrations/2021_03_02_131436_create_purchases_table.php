@@ -16,7 +16,7 @@ class CreatePurchasesTable extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('item_id');
-            $table->integer('vendor_id');
+            $table->integer('vendor_id')->nullable();
             $table->integer('quantity');
             $table->decimal('unit_cost', 18, 2);
             $table->timestamp('created_at')->useCurrent();

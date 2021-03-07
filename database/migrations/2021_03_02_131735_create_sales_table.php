@@ -15,7 +15,7 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('invoice_no');
+            $table->integer('invoice_no')->nullable();
             $table->integer('item_id');
             $table->integer('quantity');
             $table->decimal('unit_price', 18, 2);

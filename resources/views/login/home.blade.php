@@ -63,14 +63,14 @@
         <div class="col s12 m3">
             <div class="card">
                 <div class="card-image">
-                    <img src="{{ asset('assets/img/shop1.jpg') }}">
-                    <span class="card-title">Card Title</span>
+                    <img src="{{ asset('assets/img/stripedshirts.jpg') }}">
+                    <span class="card-title">D&G Shirt</span>
                 </div>
                 <div class="card-content">
-                    <p>I am a very simple card.</p>
+                    <p>Striped Shirt for gentlemen.</p>
                 </div>
                 <div class="card-action">
-                    <a href="#">This is a link</a>
+                    <a href="#">D&G</a>
                 </div>
             </div>
         </div>

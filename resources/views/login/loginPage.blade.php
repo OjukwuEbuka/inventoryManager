@@ -6,7 +6,7 @@
 
 <div class="container" id="loginContainer">
 
-    <div class="loginFrame row center z-depth-1 blackBorder">
+    <div class="row center z-depth-1" id="loginFrame">
         <div class="col s12 offset-m3 m6 center " id="">
             <div class="">
                 <h4 class="center">Login</h4>
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="center">
-                        <button class="btn btn-large grey accent-3" type="submit" name="submit" id="loginSubmit">LOG IN</button>
+                        <button class="btn btn-large accent-3" type="submit" name="submit" id="loginSubmit">LOG IN</button>
                     </div>
                     <div class="progress hide colCode">
                         <div class="indeterminate"></div>

@@ -45,6 +45,12 @@ html, body {
 
 #loginContainer{
     margin-top: 10%;
+    background-color: #f5edac;
+    border-radius: 10px;
+}
+
+#loginFrame{
+    border-radius: 10px !important;
 }
 
 .blackBorder{
@@ -53,10 +59,13 @@ html, body {
 
 #loginSubmit{
     margin-bottom: 2rem;
+    background-color: #745110 !important;
+    color: #fff !important
 }
 
 #loginSubmit:hover{
-    background-color: #745110 !important;
+    /* background-color: #745110 !important;
+    color: #fff !important; */
 }
 
 #navbar ul li:hover{
