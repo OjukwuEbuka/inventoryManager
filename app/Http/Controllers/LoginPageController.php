@@ -13,22 +13,16 @@ class LoginPageController extends Controller
 {
     //
     public function home(){
-        // if(isset($_SESSION['user']))
-        // {session_destroy();}
         Auth::logout();
         return view('login.home');
     }
     
     public function index(){
-        // if(isset($_SESSION['user']))
-        // {session_destroy();}
         Auth::logout();
         return view('login.loginPage');
     }
     
     public function logout(){
-        // if(isset($_SESSION['user']))
-        // {session_destroy();}
         Auth::logout();
         return view('login.loginPage');
     }
@@ -65,22 +59,4 @@ class LoginPageController extends Controller
         } 
     }
 
-    public function changePassword(Request $request, School $school){
-        return view('archive.password', compact('school'));
-    }
-
-    public function repassword(Request $request){
-        $data = $request->all();
-
-        $updatePass = DB::table('users')
-        ->where([['name', '=', $data['uname']], ['school_id', '=', $data['schoolId']]])
-        ->update(['password' => Hash::make($data['pword'])]);
-
-        if(!$updatePass){
-            return response()->json(['error' => true]);
-        }
-
-        return response()->json(['success' => true]);
-
-    }
 }
