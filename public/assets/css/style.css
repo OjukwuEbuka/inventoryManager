@@ -29,18 +29,6 @@ html, body {
     height: 90px;
 }
 
-/* @media only screen and (max-width: 840px){
-    #caro1 {
-        height: 300px !important;
-    }
-}
-
-@media only screen and (max-width: 464px){
-    #caro1 {
-        height: 180px !important;
-    }
-} */
-
 #navbar{
     background-color: #ece28a;
     background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(117, 81, 16)) !important;
