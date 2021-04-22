@@ -22,7 +22,7 @@
     </table>
 
 <div class="row">
-    <div class="col m12 center">
+    <div class="col m12 s12 center">
         <button class="btn" id="purchaseModalBtn">
             Add Product
             <i class="material-icons left">add</i>
@@ -35,7 +35,7 @@
 </div>
 
 <div class="row">
-    <div class="col m12 center">
+    <div class="col m12 s12 center">
         <button class="btn" id="productSubmitBtn">
             Submit
         </button> 

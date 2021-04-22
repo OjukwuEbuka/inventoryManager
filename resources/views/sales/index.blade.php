@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col m6 center">
         <h6 class="center">Choose Product</h6>
-        <div class="input-field col m8">
+        <div class="input-field col m8 s12 center">
             <select id="chooseProduct" name="chooseProduct" class="browser-default">
                 <option value=""> Choose Product </option>
                 @if(count($prods) > 0)
@@ -26,7 +26,7 @@
                 @endif
             </select>
         </div>
-        <div class="input-field col m4">
+        <div class="input-field col m4 s12">
                 <label for="quantity" >Quantity</label>
                 <input type="number" name="quantity" id="quantity" />
             </div>
@@ -39,7 +39,7 @@
     <div class="col m1 center">
     </div>
 
-    <div class="col m5 center">
+    <div class="col m5 s12 center">
         <h6 class="center">Sales Invoice</h6>
         <table class="white" id="invoice">
             <thead>
