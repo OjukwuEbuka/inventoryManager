@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function(e){
     let deleteModal = document.querySelector('#deleteModal');
 
     $('#categoryTable').DataTable();
+    $('#productTable').DataTable();
     M.AutoInit();
 
     M.Sidenav.init(mobileMenu, {edge: "right"});

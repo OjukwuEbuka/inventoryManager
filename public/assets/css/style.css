@@ -17,7 +17,19 @@ html, body {
     height: 550px !important;
 }
 
-@media only screen and (max-width: 840px){
+#caro1 img{
+    height: 100% !important;
+}
+
+.card-image img{
+    max-height: 170px;
+}
+
+.card-content{
+    height: 90px;
+}
+
+/* @media only screen and (max-width: 840px){
     #caro1 {
         height: 300px !important;
     }
@@ -27,7 +39,7 @@ html, body {
     #caro1 {
         height: 180px !important;
     }
-}
+} */
 
 #navbar{
     background-color: #ece28a;
@@ -73,7 +85,7 @@ html, body {
 }
 
 /* HANDLE SIDEBAR BEHAVIOUR */
-#slide-out{
+#slide-out, #mobile-demo {
     width: 250px !important;
     background-color: #ece28a;
 }

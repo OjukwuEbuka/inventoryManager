@@ -11,7 +11,7 @@
     <i class="material-icons left">add</i>
 </button>
 
-    <table class="" id="productTable">
+    <table class="responsive-table" id="productTable">
         <thead>
             <tr>
                 <th>Id</th>
